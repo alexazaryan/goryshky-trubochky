@@ -45,6 +45,7 @@ async function uploadPhoto(file) {
    const base64 = await toBase64(file);
    const formData = new FormData();
    formData.append("image", base64.split(",")[1]);
+   formData.append("album", "vsPcWp"); // ID твоего альбома
    const res = await fetch(
       `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`,
       {
