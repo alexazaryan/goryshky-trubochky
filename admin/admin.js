@@ -89,6 +89,9 @@ window.addProduct = async function () {
          createdAt: Date.now(),
       });
       status.textContent = "✅ Товар додано!";
+      setTimeout(() => {
+         status.textContent = "";
+      }, 5000);
       document.getElementById("name").value = "";
       document.getElementById("desc").value = "";
       document.getElementById("photo").value = "";
@@ -122,4 +125,21 @@ async function loadProducts() {
 window.deleteProduct = async function (id) {
    await deleteDoc(doc(db, "products", id));
    loadProducts();
+};
+
+// счетчик символов в описании
+document.getElementById("name").addEventListener("input", function () {
+   document.getElementById("name-count").textContent =
+      this.value.length + "/25";
+});
+
+document.getElementById("desc").addEventListener("input", function () {
+   document.getElementById("desc-count").textContent =
+      this.value.length + "/150";
+});
+
+// винен пароль при вводе
+window.togglePassword = function () {
+   const input = document.getElementById("password");
+   input.type = input.type === "password" ? "text" : "password";
 };

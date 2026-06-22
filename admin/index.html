@@ -12,7 +12,20 @@
          <div class="login-box">
             <h2>Вхід</h2>
             <input type="email" id="email" placeholder="Email" />
-            <input type="password" id="password" placeholder="Пароль" />
+            <div style="position: relative">
+               <input type="password" id="password" placeholder="Пароль" />
+               <span
+                  onclick="togglePassword()"
+                  style="
+                     position: absolute;
+                     right: 12px;
+                     top: 50%;
+                     transform: translateY(-50%);
+                     cursor: pointer;
+                  "
+                  >👁</span
+               >
+            </div>
             <button onclick="login()">Увійти</button>
             <p id="login-error"></p>
          </div>
@@ -29,8 +42,21 @@
             <!-- ФОРМА ДОДАВАННЯ -->
             <div class="admin-form">
                <h3>Додати товар</h3>
-               <input type="text" id="name" placeholder="Назва товару" />
-               <textarea id="desc" placeholder="Опис товару"></textarea>
+               <input
+                  type="text"
+                  id="name"
+                  placeholder="Назва товару не більше 25 символів"
+                  maxlength="25"
+               />
+               <small id="name-count">0/25</small>
+
+               <textarea
+                  id="desc"
+                  placeholder="Опис товару не більше 150 символів"
+                  maxlength="150"
+               ></textarea>
+               <small id="desc-count">0/150</small>
+
                <input type="file" id="photo" accept="image/*" />
                <button onclick="addProduct()">Додати</button>
                <p id="form-status"></p>
