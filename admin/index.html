@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="uk">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Адмінка</title>
+      <link rel="stylesheet" href="stylesForm.css" />
+   </head>
+   <body>
+      <!-- ЛОГІН -->
+      <div id="login-screen">
+         <div class="login-box">
+            <h2>Вхід</h2>
+            <input type="email" id="email" placeholder="Email" />
+            <input type="password" id="password" placeholder="Пароль" />
+            <button onclick="login()">Увійти</button>
+            <p id="login-error"></p>
+         </div>
+      </div>
+
+      <!-- АДМІНКА -->
+      <div id="admin-screen" style="display: none">
+         <div class="admin-wrap">
+            <div class="admin-header">
+               <h2>Управління товарами</h2>
+               <button onclick="logout()">Вийти</button>
+            </div>
+
+            <!-- ФОРМА ДОДАВАННЯ -->
+            <div class="admin-form">
+               <h3>Додати товар</h3>
+               <input type="text" id="name" placeholder="Назва товару" />
+               <textarea id="desc" placeholder="Опис товару"></textarea>
+               <input type="file" id="photo" accept="image/*" />
+               <button onclick="addProduct()">Додати</button>
+               <p id="form-status"></p>
+            </div>
+
+            <!-- СПИСОК ТОВАРІВ -->
+            <div class="admin-list" id="products-list"></div>
+         </div>
+      </div>
+
+      <script type="module" src="admin.js"></script>
+   </body>
+</html>
